@@ -21,11 +21,13 @@ public class AnimalController {
   }
 
   @GetMapping
+  @ResponseStatus(HttpStatus.OK)
   public List<Animal> getAllAnimals() {
     return animalDao.getAllAnimals();
   }
 
   @GetMapping("/{id}")
+  @ResponseStatus(HttpStatus.OK)
   public Animal getAnimalById(@PathVariable int id) {
     return animalDao.getAnimalById(id);
   }
@@ -37,11 +39,13 @@ public class AnimalController {
   }
 
   @PutMapping
+  @ResponseStatus(HttpStatus.NO_CONTENT)
   public void updateAnimal(@RequestBody Animal animal) {
     animalDao.updateAnimal(animal);
   }
 
   @DeleteMapping("/{id}")
+  @ResponseStatus(HttpStatus.NO_CONTENT)
   public void deleteAnimalById(@PathVariable int id) {
     animalDao.deleteAnimalById(id);
   }
